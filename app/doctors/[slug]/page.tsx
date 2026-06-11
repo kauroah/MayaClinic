@@ -125,7 +125,7 @@ export default async function DoctorPage({ params }: DoctorPageProps) {
               {/* Bio */}
               <div className="mb-12">
                 <h3 className="mb-4 text-xl font-semibold text-foreground">
-                  About {doctor.name.split(" ")[0]}
+                  О {doctor.name.split(" ")[0]}
                 </h3>
                 <div className="space-y-4 text-muted-foreground">
                   {doctor.fullBio.split("\n\n").map((paragraph, i) => (
@@ -224,7 +224,7 @@ export default async function DoctorPage({ params }: DoctorPageProps) {
                     <div>
                       <div className="flex items-center gap-2 text-sm font-medium text-foreground">
                         <Calendar className="h-4 w-4" />
-                        Available Days
+                        Свободные дни
                       </div>
                       <div className="mt-2 flex flex-wrap gap-1">
                         {doctor.availableDays.map((day) => (

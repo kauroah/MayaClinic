@@ -5,8 +5,8 @@ import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const geist = Geist({ subsets: ["latin"] });
+const geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
@@ -29,23 +29,19 @@ export const metadata: Metadata = {
     title: 'Maya Clinic | Ваше здоровье — наш приоритет',
     description: 'Комплексные медицинские услуги в Бангкоке. Запишитесь на прием сегодня.',
   },
-  icons: {
+icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
+        url: '/icon.png',
       },
       {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
+        url: '/icon.png',
         type: 'image/svg+xml',
       },
     ],
-    apple: '/apple-icon.png',
+    apple: '/icon.png',
   },
+  manifest: '/manifest.json',
 }
 
 export default function RootLayout({
