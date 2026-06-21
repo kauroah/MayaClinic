@@ -24,7 +24,7 @@ const promotions = [
     title: "Молодой взгляд + идеальный овал лица за одну операцию!",
     subtitle: "Комплексное омоложение",
     href: "/aktsii/aktsiya-molodoj-vzglyad-idealnyj-oval-litsa-za-odnu-operatsiyu",
-    image: "/sale1.webp",
+    image: "/sale1.png",
     discount: "Специальная цена",
     badge: "Хит продаж",
     color: "from-rose-500 to-pink-500",
@@ -35,7 +35,7 @@ const promotions = [
     title: "Макс Лифтинг ВСЕ ВКЛЮЧЕНО за 200 000 руб.",
     subtitle: "Премиум подтяжка",
     href: "/aktsii/aktsiya-maks-lift-podtyazhka",
-    image: "/sale2.webp",
+    image: "/sale2.png",
     discount: "Фиксированная цена",
     badge: "Выгода 30%",
     color: "from-blue-500 to-indigo-500",
@@ -46,7 +46,7 @@ const promotions = [
     title: "ДМС в Майя Клиник",
     subtitle: "Страхование здоровья",
     href: "/aktsii/dms-v-majya-klinik",
-    image: "/sale3.webp",
+    image: "/sale3.png",
     discount: "Специальные условия",
     badge: "Новинка",
     color: "from-emerald-500 to-teal-500",
@@ -77,7 +77,8 @@ export default function PromotionsPage() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null)
 
   return (
-    <>
+    // Wrap everything in a container with pointer-events-none
+    <div className="pointer-events-none">
       <PageHeader
         title="Акции"
         description="Специальные предложения и выгодные условия в «Майя Клиник» — современное оборудование, опытные врачи и комфортная атмосфера"
@@ -117,7 +118,7 @@ export default function PromotionsPage() {
                 {features.map((feature, index) => (
                   <div
                     key={feature.title}
-                    className="flex items-start gap-3 p-4 rounded-xl bg-background/50 backdrop-blur-xs border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-md"
+                    className="flex items-start gap-3 p-4 rounded-xl bg-background/50 backdrop-blur-xs border border-border/50 transition-all duration-300"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <div className="p-2 rounded-lg bg-primary/10 shrink-0">
@@ -131,41 +132,36 @@ export default function PromotionsPage() {
                 ))}
               </div>
 
-              {/* CTA Buttons */}
+              {/* CTA Buttons - Now non-clickable */}
               <div className="flex flex-wrap items-center gap-4">
                 <Button 
                   size="lg" 
-                  className="bg-linear-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary shadow-lg shadow-primary/25"
-                  onClick={() => setIsModalOpen(true)}
+                  className="bg-linear-to-r from-primary to-primary/80 shadow-lg shadow-primary/25 cursor-not-allowed opacity-75"
                 >
                   <Calendar className="w-5 h-5 mr-2" />
                   Записаться на консультацию
                 </Button>
-                <a 
-                  href="tel:+78435586052" 
-                  className="flex items-center gap-2 px-4 py-3 rounded-xl border-2 border-border hover:border-primary/50 transition-all duration-300 group hover:shadow-md"
-                >
-                  <Phone className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
+                <div className="flex items-center gap-2 px-4 py-3 rounded-xl border-2 border-border opacity-75">
+                  <Phone className="w-5 h-5 text-primary" />
                   <span className="font-semibold text-lg">+7 (843) 558-60-52</span>
-                </a>
+                </div>
               </div>
             </div>
 
-            {/* Right Content - Interactive Image */}
+            {/* Right Content */}
             <div className="relative animate-fade-in-up">
-              <div className="relative aspect-4/3 rounded-3xl overflow-hidden shadow-2xl group">
+              <div className="relative aspect-4/3 rounded-3xl overflow-hidden shadow-2xl">
                 <Image
                   src="/sale.JPG"
                   alt="Майя Клиник - премиальные процедуры"
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover"
                   priority
                 />
-                {/* Floating badges */}
-                <div className="absolute top-4 right-4 px-4 py-2 bg-background/90 backdrop-blur-xs rounded-full shadow-lg animate-float">
+                <div className="absolute top-4 right-4 px-4 py-2 bg-background/90 backdrop-blur-xs rounded-full shadow-lg">
                   <span className="text-sm font-semibold">🔥 Только сейчас</span>
                 </div>
-                <div className="absolute bottom-4 left-4 px-4 py-2 bg-primary/90 backdrop-blur-xs text-primary-foreground rounded-full shadow-lg animate-float-delayed">
+                <div className="absolute bottom-4 left-4 px-4 py-2 bg-primary/90 backdrop-blur-xs text-primary-foreground rounded-full shadow-lg">
                   <span className="text-sm font-semibold">До -30%</span>
                 </div>
               </div>
@@ -174,7 +170,7 @@ export default function PromotionsPage() {
         </div>
       </section>
 
-      {/* Divider with Gradient */}
+      {/* Divider */}
       <div className="relative">
         <div className="absolute inset-0 flex items-center" aria-hidden="true">
           <div className="w-full border-t border-border" />
@@ -199,76 +195,57 @@ export default function PromotionsPage() {
                 key={promotion.id}
                 className="animate-fade-in-up"
                 style={{ animationDelay: `${index * 150}ms` }}
-                onMouseEnter={() => setHoveredCard(promotion.id)}
-                onMouseLeave={() => setHoveredCard(null)}
               >
-                <Link href={promotion.href}>
-                  <div className="group relative overflow-hidden rounded-2xl border border-border bg-card shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
-                    {/* Image Container */}
-                    <div className="relative aspect-4/5 overflow-hidden">
-                      {/* Gradient Overlay */}
-                      <div className={`absolute inset-0 bg-linear-to-t ${promotion.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500 z-10`} />
-                      
-                      <Image
-                        src={promotion.image}
-                        alt={promotion.title}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                      
-                      {/* Badge */}
-                      {promotion.badge && (
-                        <div className="absolute top-4 left-4 z-20">
-                          <Badge className={`bg-linear-to-r ${promotion.color} text-white border-0 shadow-lg`}>
-                            {promotion.badge}
-                          </Badge>
-                        </div>
-                      )}
-
-                      {/* Hover Overlay with CTA */}
-                      <div className={`absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent z-20 transition-all duration-500 ${
-                        hoveredCard === promotion.id ? 'opacity-100' : 'opacity-0'
-                      }`}>
-                        <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform transition-transform duration-500 translate-y-4 group-hover:translate-y-0">
-                          <p className="text-sm opacity-90 mb-3">{promotion.subtitle}</p>
-                          <div className="flex items-center gap-2">
-                            <span className="font-semibold">Узнать подробнее</span>
-                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                          </div>
-                        </div>
+                <div className="group relative overflow-hidden rounded-2xl border border-border bg-card shadow-lg cursor-not-allowed">
+                  {/* Image Container */}
+                  <div className="relative aspect-4/5 overflow-hidden">
+                    <div className={`absolute inset-0 bg-linear-to-t ${promotion.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500 z-10`} />
+                    
+                    <Image
+                      src={promotion.image}
+                      alt={promotion.title}
+                      fill
+                      className="object-cover"
+                    />
+                    
+                    {promotion.badge && (
+                      <div className="absolute top-4 left-4 z-20">
+                        <Badge className={`bg-linear-to-r ${promotion.color} text-white border-0 shadow-lg`}>
+                          {promotion.badge}
+                        </Badge>
                       </div>
-                    </div>
+                    )}
+                  </div>
 
-                    {/* Content */}
-                    <div className="p-6 space-y-4">
-                      <div className="flex items-start gap-3">
-                        <div className={`p-2 rounded-lg bg-linear-to-r ${promotion.color} shrink-0`}>
-                          <promotion.icon className="w-5 h-5 text-white" />
-                        </div>
-                        <div>
-                          <h3 className="font-semibold text-lg leading-tight group-hover:text-primary transition-colors">
-                            {promotion.title}
-                          </h3>
-                          <p className="text-sm text-muted-foreground mt-1">
-                            {promotion.discount}
-                          </p>
-                        </div>
+                  {/* Content */}
+                  <div className="p-6 space-y-4">
+                    <div className="flex items-start gap-3">
+                      <div className={`p-2 rounded-lg bg-linear-to-r ${promotion.color} shrink-0`}>
+                        <promotion.icon className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-lg leading-tight">
+                          {promotion.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground mt-1">
+                          {promotion.discount}
+                        </p>
                       </div>
                     </div>
                   </div>
-                </Link>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section - Using only the props that exist in the component */}
+      {/* CTA Section */}
       <CTASection
         title="Не пропустите! Запишитесь на приём прямо сейчас!"
         description="Воспользуйтесь специальными предложениями с ограниченным сроком действия. Наши специалисты подберут индивидуальную программу. Звоните: +7 (843) 558-60-52"
         primaryButtonText="Записаться сейчас"
       />
-    </>
+    </div>
   )
 }

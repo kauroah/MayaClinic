@@ -1,7 +1,7 @@
 import type { ClinicInfo, NavItem } from "@/lib/types"
 
 export const clinicInfo: ClinicInfo = {
-  name: "Клиника Майя",
+  name: "Майя Клиник",
   tagline: "Ваше здоровье — наш приоритет",
   address: "Астрономическая ул., 8/21",
   city: "Казань, Россия",
@@ -42,7 +42,7 @@ export const mainNavItems: NavItem[] = [
       { label: "Стоматология", href: "/services/dental-care" },
       { label: "УЗИ", href: "/services/ultrasound" },
       { label: "Кистевая хирургия", href: "/services/hand-surgery" },
-      { label: "Офтальмология", href: "/services/ophthalmology" },
+      // { label: "Офтальмология", href: "/services/ophthalmology" },
     ],
   },
   {

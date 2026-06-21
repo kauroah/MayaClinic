@@ -158,17 +158,6 @@ export default function ContactPage() {
                   </svg>
                 </a>
               )}
-              {clinicInfo.socialLinks.instagram && (
-                <a
-                  href={clinicInfo.socialLinks.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary"
-                  aria-label="Instagram"
-                >
-                  <Instagram className="h-5 w-5" />
-                </a>
-              )}
               {clinicInfo.socialLinks.prodoctorov && (
               <a
                 href={clinicInfo.socialLinks.prodoctorov}

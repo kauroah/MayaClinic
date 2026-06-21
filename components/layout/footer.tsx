@@ -144,48 +144,36 @@ export function Footer() {
                   </svg>
                 </a>
               )}
-              {clinicInfo.socialLinks.instagram && (
-                <a
-                  href={clinicInfo.socialLinks.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary"
-                  aria-label="Instagram"
-                >
-                  <Instagram className="h-5 w-5" />
-                </a>
-              )}
               {clinicInfo.socialLinks.prodoctorov && (
-  <a
-    href={clinicInfo.socialLinks.prodoctorov}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="hover:opacity-80 transition"
-    aria-label="ProDoctorov"
-  >
-    <img
-      src="/prodoctorov.jpg"
-      alt="ProDoctorov"
-      className="h-5 w-5"
-    />
-  </a>
-)}
-
-{clinicInfo.socialLinks.napopravku && (
-  <a
-    href={clinicInfo.socialLinks.napopravku}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="hover:opacity-80 transition"
-    aria-label="NaPopravku"
-  >
-    <img
-      src="/napopravku.png"
-      alt="NaPopravku"
-      className="h-5 w-5"
-    />
-  </a>
-)}
+              <a
+                href={clinicInfo.socialLinks.prodoctorov}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition"
+                aria-label="ProDoctorov"
+              >
+                <img
+                  src="/prodoctorov.jpg"
+                  alt="ProDoctorov"
+                  className="h-5 w-5"
+                />
+              </a>
+            )}
+            {clinicInfo.socialLinks.napopravku && (
+              <a
+                href={clinicInfo.socialLinks.napopravku}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition"
+                aria-label="NaPopravku"
+              >
+                <img
+                  src="/napopravku.png"
+                  alt="NaPopravku"
+                  className="h-5 w-5"
+                />
+              </a>
+            )}
             </div>
           </div>
           </div>
